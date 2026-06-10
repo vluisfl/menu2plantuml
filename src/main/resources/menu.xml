@@ -1,0 +1,13 @@
+<menu>
+    <item name="Inicio" profiles="USER,ADMIN"/>
+
+    <item name="Administración" profiles="ADMIN">
+        <item name="Usuarios" profiles="ADMIN"/>
+        <item name="Roles" profiles="ADMIN"/>
+    </item>
+
+    <item name="Reportes" profiles="USER,ADMIN">
+        <item name="Ventas" profiles="USER"/>
+        <item name="Finanzas" profiles="ADMIN"/>
+    </item>
+</menu>
