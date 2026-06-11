@@ -1,8 +1,11 @@
 package flekos.menu2plantuml;
 
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -15,7 +18,7 @@ public class Main {
 
         String perfil = args[1];
 
-        InputStream is = Main.class.getClassLoader().getResourceAsStream("menu_aplicacion.xml");
+        InputStream is = Main.class.getClassLoader().getResourceAsStream("menu_fext.xml");
 
         MenuItem root = MenuParser.parse(is);
 
@@ -23,6 +26,9 @@ public class Main {
 
         System.out.println(plant);
 
-        Files.write(Paths.get(args[0]), plant.getBytes());
+        List<String> lineas = Arrays.asList(plant);
+        
+        Files.write(Paths.get(args[0]), lineas, StandardCharsets.UTF_8);
+        
     }
 }
