@@ -1,16 +1,20 @@
 package flekos.menu2plantuml;
 
 import org.w3c.dom.*;
+import org.xml.sax.InputSource;
+
 import javax.xml.parsers.*;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class MenuParser {
 
     public static MenuItem parse(InputStream is) throws Exception {
+
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(is);
+        Document doc = builder.parse(new InputSource(new InputStreamReader(is, "UTF-8")));
 
         Element root = doc.getDocumentElement();
         MenuItem rootItem = new MenuItem(null,"ROOT",null,null, Arrays.asList("1","2","3","4","5","6","7","8","9","10","11","12"));
